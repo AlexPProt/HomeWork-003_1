@@ -30,3 +30,21 @@
 // Console.Write ("Введите число для обработки :");
 // int inpnum = Convert.ToInt32(Console.ReadLine());
 // Console.WriteLine($"Результат обработки числа {inpnum} составляет {SumD (inpnum)}");
+
+
+//Задание 3: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
+int longmas=8;
+int [] checkarray = new int[longmas];
+for (int count=0; count<longmas; count++)
+{
+    Console.Write($"Введите {count} элемент массива ");
+    checkarray[count] = Convert.ToInt32(Console.ReadLine());
+}
+
+void PrintMas (int [] array)
+{
+    int length = array.Length;
+    for (int count=0; count <length; count++) Console.WriteLine ($"Элемент массива {count} - {array[count]}");
+}
+PrintMas (checkarray);
