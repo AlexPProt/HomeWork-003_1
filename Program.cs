@@ -1,23 +1,73 @@
-﻿
-/// Домашнее задание к семинару №5 ЗАДАНИЕ №1
+﻿// Домашнее задание к семинару №5 ЗАДАНИЕ №3
+// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+double MinMaxDif (double [] array)          // Метод вычисления разницы между мин и макс эл-ми массива
+{
+    double min= array[0];
+    double max= array[0];
+    for (int i=1; i<array.Length; i++)
+    {
+        if (array[i]<min) min=array[i];
+        if (array[i]>max) max=array[i];
+    }
+    return (max-min);
+}
+
+Console.Write("Input a quantity of elements array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+double [] myArray = new double [size];
+for (int i=0;i<size;i++)
+{
+    Console.Write($"Input {i} element of array: ");
+    myArray[i]= Convert.ToDouble(Console.ReadLine());
+}
+ShowDoubMas(myArray);                                   // Выводим массив и результат обработки
+Console.WriteLine ("The difference betwin min & max elements of the array is :"+ MinMaxDif (myArray) );
+
+
+// Домашнее задание к семинару №5 ЗАДАНИЕ №2
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. 
+// Найдите сумму элементов, стоящих на нечётных позициях.
+
+// int SumOddPos (int [] array)  // функция определения суммы эелементов стоящих на нечетных позициях
+//     {
+//         int sum=0;
+//         for (int i=1;i<array.Length;i=i+2) sum=sum+array[i];
+//         return sum;
+//     }
+
+// // Задаем исходные параметры
+// Console.Write("Input a quantity of elements array: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a minimum possible element: ");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a maximum possible element: ");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int [] myArray = CreatRandomArray (size,min,max);   // Гененрируем массив
+// ShowIntMas (myArray);                                   // Выводим массив и результат обработки
+// Console.WriteLine ("The number of even elements of the array is :"+ SumOddPos (myArray) );
+
+
+
+// Домашнее задание к семинару №5 ЗАДАНИЕ №1
 // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 
-int EventElem (int [] array)
-{
-    int count=0;
-    for (int i=0; i<array.Length; i++)
-        if (array[i]%2==0) count++;
-    return count;
-}
-// Задаем исходные параметры
-int min=100;
-int max=1000;
-Console.Write("Input a quantity of elements array: ");
-int size = Convert.ToInt32(Console.ReadLine());
-int [] myArray = CreatRandomArray (size,min,max);
-ShowMas(myArray);
-Console.WriteLine ("The number of even elements of the array is -"+ EventElem (myArray) );
+// int EventElem (int [] array)
+// {
+//     int count=0;
+//     for (int i=0; i<array.Length; i++)
+//         if (array[i]%2==0) count++;
+//     return count;
+// }
+// // Задаем исходные параметры
+// int min=100;
+// int max=1000;
+// Console.Write("Input a quantity of elements array: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// int [] myArray = CreatRandomArray (size,min,max);
+// ShowMas(myArray);
+// Console.WriteLine ("The number of even elements of the array is -"+ EventElem (myArray) );
 
 
 
@@ -34,12 +84,18 @@ int[] CreatRandomArray (int size, int minValue, int maxValue)
     return array;
 }
 
-// Процедура вывода массива на экран
-void ShowMas (int [] array)
+// Процедура вывода массива на экран с числами double
+void ShowDoubMas (double [] array)
 {
     for (int count=0; count <array.Length; count++) Console.WriteLine ($"Элемент массива {count} - {array[count]}");
 }
 
+
+// Процедура вывода массива на экран с числами int
+void ShowIntMas (int [] array)
+{
+    for (int count=0; count <array.Length; count++) Console.WriteLine ($"Элемент массива {count} - {array[count]}");
+}
 
 
 
