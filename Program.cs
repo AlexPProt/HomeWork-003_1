@@ -66,7 +66,7 @@ Console.WriteLine ("The difference betwin min & max elements of the array is :"+
 // Console.Write("Input a quantity of elements array: ");
 // int size = Convert.ToInt32(Console.ReadLine());
 // int [] myArray = CreatRandomArray (size,min,max);
-// ShowMas(myArray);
+// ShowIntMas(myArray);
 // Console.WriteLine ("The number of even elements of the array is -"+ EventElem (myArray) );
 
 
