@@ -52,7 +52,8 @@ double b1=Convert.ToDouble(Console.ReadLine());
 Console.Write("Input ratio b2 - ");
 double b2=Convert.ToDouble (Console.ReadLine());
 
-Console.WriteLine ($"Point intersection of lines  (X : {PointX (k1,k2,b1,b2)} ,  Y : {PointY (k1,k2,b1,b2)})");
+if (k1==k2) Console.WriteLine("Прямые параллельны");
+else {Console.WriteLine ($"Point intersection of lines  (X : {PointX (k1,k2,b1,b2)} ,  Y : {PointY (k1,k2,b1,b2)})");}
 
 
 
