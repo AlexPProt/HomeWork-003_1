@@ -1,28 +1,195 @@
-﻿// Домашнее задание к семинару №5 ЗАДАНИЕ №3
+﻿// //Домашнее задание к 6му семинару
+
+
+// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
+
+
+// int CheckNeg (int n)
+// {
+//     int count=0;
+//     int temp;
+//     for (int i=0; i<n ; i++)
+//     {
+//         Console.Write ($"Введите {i} е число -");
+//         temp = Convert.ToInt32(Console.ReadLine());
+//         if (temp<0) count++;
+//     }
+//     return count;
+// }
+// Console.Write("Input a quantity of elements - ");
+// int n = Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine($"A quantity negative elements - {CheckNeg(n)}");
+
+
+
+
+
+
+
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+
+
+double PointX (double k1, double k2, double b1, double b2)
+{
+    double rez =(b2-b1)/(k1-k2);
+    return rez;    
+}
+double PointY (double k1, double k2, double b1, double b2)
+{
+    return k1* PointX(k1,k2,b1,b2) +b1;    
+}
+Console.Write("Input ratio k1 - ");
+double k1=Convert.ToDouble(Console.ReadLine());
+Console.Write("Input ratio k2 - ");
+double k2=Convert.ToDouble(Console.ReadLine());
+Console.Write("Input ratio b1 - ");
+double b1=Convert.ToDouble(Console.ReadLine());
+Console.Write("Input ratio b2 - ");
+double b2=Convert.ToDouble (Console.ReadLine());
+
+Console.WriteLine ($"Point intersection of lines  (X : {PointX (k1,k2,b1,b2)} ,  Y : {PointY (k1,k2,b1,b2)})");
+
+
+
+
+
+
+//----------------СЕМИНАР 6-----------
+
+// 1 Напишите программу, которая принимает на вход три числа и проверяет, 
+//  может ли существовать треугольник с сторонами такой длины.
+
+// bool CheckTrin(int l1, int l2, int l3)
+// {
+//     if (l1<l2+l3 && l2<l1+l3 && l3<l1+l2) return true;
+//     return false;
+// }
+
+// Console.WriteLine("Input size 1 - ");
+// int l1=Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input size 1 - ");
+// int l2=Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input size 1 - ");
+// int l3=Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine ($" По заданным длинам труегольник -  {CheckTrin (l1,l2,l3)} " );
+
+
+
+// 2 Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
+
+
+// int[] Fibonacci (int num1, int num2, int razm)
+// {
+//     int[] array = new int[razm];
+//     array[0]=num1;
+//     array[1]=num2;
+//     for (int i=2; i<razm; i++) array[i]=array[i-1]+array[i-2];
+//     return array;
+// }
+
+// Console.Write ("Введите кол-во эл-в ряда - ");
+// int razm = Convert.ToInt32(Console.ReadLine());
+// Console.Write ("Введите превое значние ряда - ");
+// int num1= Convert.ToInt32(Console.ReadLine());
+// Console.Write ("Введите превое значние ряда - ");
+// int num2= Convert.ToInt32(Console.ReadLine());
+
+// int[] fibArray= Fibonacci(num1,num2,razm);
+
+// ShowIntMas (fibArray);
+
+// 3 Напишите программу, которая будет создавать копию заданного массива с помощью поэлементного копирования.
+
+
+
+// // Задаем исходные параметры
+// Console.Write("Input a quantity of elements array: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a minimum possible element: ");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a maximum possible element: ");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int [] myArray = CreatRandomArray (size,min,max);   // Гененрируем массив
+
+// int [] CopyArray (int[] array)
+// {
+//     int[] mas = new int [array.Length];
+//     for (int i=0; i<array.Length; i++) mas[i]=array[i]+1;
+//     return mas;
+// }
+
+// ShowIntMas(myArray);
+// int [] newArray= CopyArray(myArray);
+// ShowIntMas(newArray);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом месте, а первый - на последнем и т.д.)
+
+// void ReverseArray (int [] array)
+// {
+//     for (int i=0, j=array.Length-1; i<j; i++, j--)
+//     {
+//         int temp=array[i];
+//         array[i]=array[j];
+//         array[j]=temp;
+//     }
+// }
+// int size=6;
+// int min = 1;
+// int max=10;
+// int [] myArray = CreatRandomArray (size,min,max);
+// ShowIntMas(myArray);
+// ReverseArray(myArray);
+// ShowIntMas(myArray);
+
+// Домашнее задание к семинару №5 ЗАДАНИЕ №3
 // Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 
-double MinMaxDif (double [] array)          // Метод вычисления разницы между мин и макс эл-ми массива
-{
-    double min= array[0];
-    double max= array[0];
-    for (int i=1; i<array.Length; i++)
-    {
-        if (array[i]<min) min=array[i];
-        if (array[i]>max) max=array[i];
-    }
-    return (max-min);
-}
+// double MinMaxDif (double [] array)          // Метод вычисления разницы между мин и макс эл-ми массива
+// {
+//     double min= array[0];
+//     double max= array[0];
+//     for (int i=1; i<array.Length; i++)
+//     {
+//         if (array[i]<min) min=array[i];
+//         if (array[i]>max) max=array[i];
+//     }
+//     return (max-min);
+// }
 
-Console.Write("Input a quantity of elements array: ");
-int size = Convert.ToInt32(Console.ReadLine());
-double [] myArray = new double [size];
-for (int i=0;i<size;i++)
-{
-    Console.Write($"Input {i} element of array: ");
-    myArray[i]= Convert.ToDouble(Console.ReadLine());
-}
-ShowDoubMas(myArray);                                   // Выводим массив и результат обработки
-Console.WriteLine ("The difference betwin min & max elements of the array is :"+ MinMaxDif (myArray) );
+// // Console.Write("Input a quantity of elements array: ");
+// // int size = Convert.ToInt32(Console.ReadLine());
+// // double [] myArray = new double [size];
+// // for (int i=0;i<size;i++)
+// // {
+// //     Console.Write($"Input {i} element of array: ");
+// //     myArray[i]= Convert.ToDouble(Console.ReadLine());
+// // }
+// // ShowDoubMas(myArray);                                   // Выводим массив и результат обработки
+// // Console.WriteLine ("The difference betwin min & max elements of the array is :"+ MinMaxDif (myArray) );
 
 
 // Домашнее задание к семинару №5 ЗАДАНИЕ №2
@@ -88,6 +255,7 @@ int[] CreatRandomArray (int size, int minValue, int maxValue)
 void ShowDoubMas (double [] array)
 {
     for (int count=0; count <array.Length; count++) Console.WriteLine ($"Элемент массива {count} - {array[count]}");
+    Console.WriteLine();
 }
 
 
@@ -95,6 +263,7 @@ void ShowDoubMas (double [] array)
 void ShowIntMas (int [] array)
 {
     for (int count=0; count <array.Length; count++) Console.WriteLine ($"Элемент массива {count} - {array[count]}");
+    Console.WriteLine();
 }
 
 
