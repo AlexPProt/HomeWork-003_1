@@ -1,4 +1,230 @@
-﻿// //Домашнее задание к 6му семинару
+﻿// Александр, вот тут код лежит=) https://github.com/Dioneer/SeminarsC.git
+
+
+// ДОМАШНИЕ ЗАДАНИЕ №3 К СЕМИНАРУ 6
+//Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+double[] ColumnsArifmMean (int [,] array)
+{
+    double [] masArifMean = new double [array.GetLength(1)];
+    for (int i=0; i<array.GetLength(1);i++)
+    {  
+        for (int j=0; j<array.GetLength(0); j++)
+           masArifMean[i]=masArifMean[i]+array[j,i];
+        masArifMean[i]=masArifMean[i]/array.GetLength(0);
+    }    
+    return masArifMean;
+}
+Console.Write("Input a quantity rows - ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a quantity columns - ");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a min possible value - ");
+int minVale = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a max possible value - ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] myArray=CreatRandom2dArray(rows,columns,minVale,maxValue);
+Show2dArray(myArray);
+
+double [] finalArray = ColumnsArifmMean (myArray);
+for (int i=0; i<finalArray.Length; i++)
+    Console.WriteLine($"Arithmetic mean {i+1} column is - {Math.Round(finalArray[i],3)}");
+
+
+
+// ДОМАШНИЕ ЗАДАНИЕ №2 К СЕМИНАРУ 6
+//Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+//и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+// void InSizeArray(int [,] array, int row, int column)
+// {
+//     row=row-1;
+//     column=column-1;   
+//     if (  row<array.GetLength(0)&&row>=0
+//         &&column<array.GetLength(1)&&column>=0)
+//         Console.WriteLine ($"Выбранный элемент массива {array[row,column]}");
+//     else Console.WriteLine ("Указан неверный диапазон вывода");
+// }
+// Console.Write("Input a quantity rows - ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a quantity columns - ");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a min possible value - ");
+// int minVale = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a max possible value - ");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine();
+
+// int[,] myArray=CreatRandom2dArray(rows,columns,minVale,maxValue);
+// Show2dArray(myArray);
+
+// Console.Write("Input a row to output - ");
+// int row = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a column to output - ");
+// int column = Convert.ToInt32(Console.ReadLine());
+// InSizeArray(myArray,row,column);
+
+
+
+// ДОМАШНИЕ ЗАДАНИЕ №1 К СЕМИНАРУ 6
+// Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+
+
+        //Функция вывода двумерного мкассива вещественных чисел
+// void ShowDouble2dArray (double[,] array,int point)     
+// {
+//         for (int i=0; i<array.GetLength(0);i++)
+//         {    
+//             for (int j=0; j<array.GetLength(1);j++)
+//                 Console.Write(Math.Round(array[i,j],point)+"  ");
+//             Console.WriteLine();
+//         }   
+//         Console.WriteLine();
+// }
+//      //Функция генерации двумерного массива
+// double [,] GreatRandomDouble2dArray(int rows, int columns, int minValue, int maxValue)
+// {
+//     double [,] array = new double[rows,columns];
+//     for (int i=0; i<rows;i++)
+//         for (int j=0; j<columns;j++)
+//            array[i,j]=new Random().NextDouble()+ new Random().Next(minValue,maxValue+1);
+//     return array;
+// } 
+// // запрашиваем входные данные для содания массива
+// Console.Write("Input a quantity rows - ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a quantity columns - ");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a min possible value - ");
+// int minVale = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Input a max possible value - ");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+// //формируем массив
+// double [,] myArray=GreatRandomDouble2dArray(rows,columns,minVale,maxValue);
+// int razr=1; // задаем формат вывода кол-ва знаков после запятой
+// ShowDouble2dArray(myArray,razr);
+
+
+
+
+
+
+
+
+
+
+//Задайте двумерный массив размера m на n, каждый элемент в массиве находится по формуле: 
+//Aij = i+j. Выведите полученный массив на экран.
+
+// int [,] CreatArray(int rows, int columns)
+// {
+//     int [,] array = new int[rows,columns];
+//     for (int i=0; i<rows;i++)
+//         for (int j=0; j<columns;j++)
+//             array[i,j]= i+j;
+//     return array;
+// } 
+
+// Console.WriteLine("Input a quantity rows");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a quantity columns");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a min possible value");
+
+// int[,] myArray=CreatArray(rows,columns);
+// Show2dArray(myArray);
+
+//Задайте двумерный массив. Найдите элементы, у которых оба индекса чётные, и замените эти элементы на их квадраты.
+
+// void EventIndex (int [,] array)
+// {
+//     for (int i=0; i<array.GetLength(0);i+=2)
+//         for (int j=0;j<array.GetLength(1);j+=2)
+//             array[i,j]*=array[i,j];
+// }
+
+// Console.WriteLine("Input a quantity rows");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a quantity columns");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a min possible value");
+// int minVale = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a max possible value");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int[,] myArray=CreatRandom2dArray(rows,columns,minVale,maxValue);
+// Show2dArray(myArray);
+// EventIndex(myArray);
+// Show2dArray(myArray);
+
+
+//Задайте двумерный массив. Найдите сумму элементов, находящихся на главной диагонали (с индексами (0,0); (1;1) и т.д.
+
+// int DiagSum (int [,] array)
+// {
+//     int sum= array[0,0];
+//     for (int i=1; i<array.GetLength(0)&&i<array.GetLength(1); i++)
+//         sum=sum+array[i,i];
+//     return sum;
+// }
+
+// Console.WriteLine("Input a quantity rows");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a quantity columns");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a min possible value");
+// int minVale = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a max possible value");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int[,] myArray=CreatRandom2dArray(rows,columns,minVale,maxValue);
+
+// Show2dArray(myArray);
+// Console.WriteLine ($"Сумма диагональных элементов - {DiagSum(myArray)}");
+
+
+
+
+
+
+int [,] CreatRandom2dArray(int rows, int columns, int minValue, int maxValue)
+{
+    int [,] array = new int[rows,columns];
+    for (int i=0; i<rows;i++)
+        for (int j=0; j<columns;j++)
+            array[i,j]= new Random().Next(minValue,maxValue+1);
+    return array;
+} 
+
+void Show2dArray (int[,] array)
+{
+        for (int i=0; i<array.GetLength(0);i++)
+        {    
+            for (int j=0; j<array.GetLength(1);j++)
+                Console.Write(array[i,j]+" ");
+            Console.WriteLine();
+        }   
+        Console.WriteLine();
+}
+
+
+// Console.WriteLine("Input a quantity rows");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a quantity columns");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a min possible value");
+// int minVale = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input a max possible value");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int[,] myArray=CreatRandom2dArray(rows,columns,minVale,maxValue);
+// Show2dArray(myArray);
+
+
+
+// //Домашнее задание к 6му семинару
 
 
 // Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
@@ -34,26 +260,26 @@
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 
-double PointX (double k1, double k2, double b1, double b2)
-{
-    double rez =(b2-b1)/(k1-k2);
-    return rez;    
-}
-double PointY (double k1, double k2, double b1, double b2)
-{
-    return k1* PointX(k1,k2,b1,b2) +b1;    
-}
-Console.Write("Input ratio k1 - ");
-double k1=Convert.ToDouble(Console.ReadLine());
-Console.Write("Input ratio k2 - ");
-double k2=Convert.ToDouble(Console.ReadLine());
-Console.Write("Input ratio b1 - ");
-double b1=Convert.ToDouble(Console.ReadLine());
-Console.Write("Input ratio b2 - ");
-double b2=Convert.ToDouble (Console.ReadLine());
+// double PointX (double k1, double k2, double b1, double b2)
+// {
+//     double rez =(b2-b1)/(k1-k2);
+//     return rez;    
+// }
+// double PointY (double k1, double k2, double b1, double b2)
+// {
+//     return k1* PointX(k1,k2,b1,b2) +b1;    
+// }
+// Console.Write("Input ratio k1 - ");
+// double k1=Convert.ToDouble(Console.ReadLine());
+// Console.Write("Input ratio k2 - ");
+// double k2=Convert.ToDouble(Console.ReadLine());
+// Console.Write("Input ratio b1 - ");
+// double b1=Convert.ToDouble(Console.ReadLine());
+// Console.Write("Input ratio b2 - ");
+// double b2=Convert.ToDouble (Console.ReadLine());
 
-if (k1==k2) Console.WriteLine("Прямые параллельны");
-else {Console.WriteLine ($"Point intersection of lines  (X : {PointX (k1,k2,b1,b2)} ,  Y : {PointY (k1,k2,b1,b2)})");}
+// if (k1==k2) Console.WriteLine("Прямые параллельны");
+// else {Console.WriteLine ($"Point intersection of lines  (X : {PointX (k1,k2,b1,b2)} ,  Y : {PointY (k1,k2,b1,b2)})");}
 
 
 
